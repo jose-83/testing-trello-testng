@@ -1,7 +1,6 @@
 package pages;
 
 import config.Config;
-import org.openqa.selenium.TimeoutException;
 
 /**
  * Represents login page

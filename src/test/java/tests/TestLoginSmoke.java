@@ -1,8 +1,8 @@
 package tests;
 
 import config.Config;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import pages.BoardsPage;
 import pages.LoggedOutPage;
 import pages.LoginPage;
@@ -20,11 +20,11 @@ public class TestLoginSmoke extends AbstractTrelloSeleniumTest {
         LoginPage loginPage = new LoginPage();
         BoardsPage boards = loginPage.loginAs(admin, password);
         String title = boards.getTitle();
-        Assert.assertEquals("Login was not successful1", expectedBoardPageTitle, title);
+        AssertJUnit.assertEquals("Login was not successful1", expectedBoardPageTitle, title);
 
         LoggedOutPage loggedOutPage = loginPage.logout();
         title = loggedOutPage.getTitle();
-        Assert.assertEquals("Logging out was not successful!", expectedLoggedOutPage, title);
+        AssertJUnit.assertEquals("Logging out was not successful!", expectedLoggedOutPage, title);
     }
 
 }

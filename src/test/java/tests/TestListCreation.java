@@ -1,10 +1,10 @@
 package tests;
 
 import config.Config;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import pages.BoardPage;
 import pages.BoardsPage;
 import pages.LoginPage;
@@ -17,14 +17,14 @@ public class TestListCreation extends AbstractTrelloSeleniumTest {
     private static final String listName = "New List";
     private static BoardsPage homepage;
 
-    @Before
+    @BeforeMethod
     public void setUp() {
         LoginPage loginPage = new LoginPage();
         homepage = loginPage.loginAs(admin, password);
         homepage.createBoard(boardName).goToHomepage();
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         homepage.goToHomepage();
         homepage.goToBoard(boardName).deleteBoard();
@@ -37,7 +37,7 @@ public class TestListCreation extends AbstractTrelloSeleniumTest {
         boardPage.addList(listName);
         boardPage.goToHomepage().goToBoard(boardName);
 
-        Assert.assertTrue("The created list is not available on board.", boardPage.isListAvailable(listName));
+        AssertJUnit.assertTrue("The created list is not available on board.", boardPage.isListAvailable(listName));
     }
 
 }

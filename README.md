@@ -1,6 +1,10 @@
 # Trello Testing with Testng
 
-This project provides a framework for testing functionalities of Trello. It contains a few selenium tests and uses Maven as a build tool.    
+This project provides a framework for testing functionalities of Trello. It contains a few selenium tests and uses Maven as a build tool. 
+
+## Testng 
+
+Version 6.8.21 has been used here which is compatible with Intellij Idea version 14. For other versions or other IDE try newer version of Testng from: http://mvnrepository.com/artifact/org.testng/testng
 
 ## Getting Started
 

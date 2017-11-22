@@ -31,11 +31,13 @@ public final class Driver {
     private Waiter waiter;
 
     private Driver(WebDriver driver) {
+
         this.waiter = new Waiter(driver);
         webDriver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS);
     }
 
     public static Driver getWrappedDriver(String browser) {
+
         Capabilities capabilities = getCapabilities(browser);
         if (wrappedDriver == null || webDriver == null) {
             webDriver = SingleWebDriverPool.DEFAULT.getDriver(capabilities);
@@ -52,6 +54,7 @@ public final class Driver {
     }
 
     public static Capabilities getCapabilities(String browser) {
+
         if ("firefox".equals(browser)) {
             return DesiredCapabilities.firefox();
         } else {
@@ -76,7 +79,7 @@ public final class Driver {
 
     private static Boolean isAlertShown() {
         try {
-            Alert alert = new WebDriverWait(webDriver, 0, 01).until(ExpectedConditions.alertIsPresent());
+            Alert alert = new WebDriverWait(webDriver, 0, 1).until(ExpectedConditions.alertIsPresent());
             return alert != null;
         } catch (TimeoutException e) {
             return false;

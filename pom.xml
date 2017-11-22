@@ -11,10 +11,9 @@
     <properties>
         <run.config.binaries.path>${project.basedir}/src/test/resources/binaries/</run.config.binaries.path>
         <!-- dependency versions -->
-        <testng.version>6.11</testng.version>
-        <selenium.version>3.5.1</selenium.version>
+        <testng.version>6.8.21</testng.version>
+        <selenium.version>3.7.1</selenium.version>
         <maven.surefire.version>2.18.1</maven.surefire.version>
-        <slf4j.version>1.7.25</slf4j.version>
         <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
     </properties>
 
@@ -55,23 +54,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
 
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.surefire</groupId>
-                        <artifactId>surefire-junit47</artifactId>
-                        <version>${maven.surefire.version}</version>
-                    </dependency>
-                </dependencies>
-
                 <configuration>
                     <systemPropertyVariables>
                         <run.config.browser>chrome</run.config.browser>
                         <trello.login.page>https://trello.com/login?returnUrl=%2F</trello.login.page>
                         <trello.admin>jose.mustermann@gmx.de</trello.admin>
                         <trello.admin.pass>Muster2017</trello.admin.pass>
-
-                        <org.slf4j.simpleLogger.defaultLogLevel>DEBUG</org.slf4j.simpleLogger.defaultLogLevel>
-                        <org.slf4j.simpleLogger.showDateTime>true</org.slf4j.simpleLogger.showDateTime>
                     </systemPropertyVariables>
 
                     <includes>
@@ -105,17 +93,9 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${maven.surefire.version}</version>
 
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.maven.surefire</groupId>
-                                <artifactId>surefire-junit47</artifactId>
-                                <version>${maven.surefire.version}</version>
-                            </dependency>
-                        </dependencies>
-
                         <configuration>
                             <systemPropertyVariables>
-                                <webdriver.chrome.driver>${run.config.binaries.path}chromedriver231.exe
+                                <webdriver.chrome.driver>${run.config.binaries.path}chromedriver233.exe
                                 </webdriver.chrome.driver>
                                 <webdriver.gecko.driver>${run.config.binaries.path}geckodriver0191.exe</webdriver.gecko.driver>
                             </systemPropertyVariables>
@@ -146,17 +126,9 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${maven.surefire.version}</version>
 
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.maven.surefire</groupId>
-                                <artifactId>surefire-junit47</artifactId>
-                                <version>${maven.surefire.version}</version>
-                            </dependency>
-                        </dependencies>
-
                         <configuration>
                             <systemPropertyVariables>
-                                <webdriver.chrome.driver>${run.config.binaries.path}chromedriver231
+                                <webdriver.chrome.driver>${run.config.binaries.path}chromedriver233
                                 </webdriver.chrome.driver>
                                 <webdriver.gecko.driver>${run.config.binaries.path}geckodriver0191</webdriver.gecko.driver>
                             </systemPropertyVariables>
@@ -187,14 +159,6 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${maven.surefire.version}</version>
-
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.maven.surefire</groupId>
-                                <artifactId>surefire-junit47</artifactId>
-                                <version>${maven.surefire.version}</version>
-                            </dependency>
-                        </dependencies>
 
                         <configuration>
                             <systemPropertyVariables>

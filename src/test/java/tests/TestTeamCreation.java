@@ -1,10 +1,10 @@
 package tests;
 
 import config.Config;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import pages.BoardsPage;
 import pages.LoginPage;
 import pages.TeamBoardsPage;
@@ -17,13 +17,13 @@ public class TestTeamCreation extends AbstractTrelloSeleniumTest {
     private static final String teamDescription = "This a team for checking its functionality.";
     private static BoardsPage homepage;
 
-    @Before
+    @BeforeMethod
     public void setUp() {
         LoginPage loginPage = new LoginPage();
         homepage = loginPage.loginAs(admin, password);
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         homepage.goToHomepage();
         homepage.goToTeamBoardsPage(teamName).deleteTeam().goToHomepage();
@@ -33,11 +33,11 @@ public class TestTeamCreation extends AbstractTrelloSeleniumTest {
     @Test
     public void testTeamCreation() {
         TeamBoardsPage teamPage = homepage.createTeam(teamName, teamDescription);
-        Assert.assertEquals("Team name is not correct", teamName, teamPage.getTeamName());
-        Assert.assertTrue("Team page was not properly loaded.", teamPage.allTabsAvailable());
+        AssertJUnit.assertEquals("Team name is not correct", teamName, teamPage.getTeamName());
+        AssertJUnit.assertTrue("Team page was not properly loaded.", teamPage.allTabsAvailable());
 
         teamPage.goToHomepage();
-        Assert.assertTrue("Team is not available on homepage.", homepage.isTeamAvailable(teamName));
+        AssertJUnit.assertTrue("Team is not available on homepage.", homepage.isTeamAvailable(teamName));
     }
 
 }
